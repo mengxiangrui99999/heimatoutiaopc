@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 // 用一种简写方式代替原有方式
 import Home from '@/views/home'
-
+import Login from '@/views/login'
 Vue.use(VueRouter)
 
 const routes = [
@@ -15,6 +15,12 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+
   }
   // {
   //   // 按需加载
