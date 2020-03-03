@@ -7,8 +7,8 @@
       <div class="title">
         <img src="../../assets/img/logo_index.png" alt="">
       </div>
-      <!-- 表单 绑定model属性 绑定rules属性（表单验证规则）-->
-      <el-form :model="loginForm" :rules="loginRules" style="margin-top:20px">
+      <!-- 表单 绑定model属性 绑定rules属性（表单验证规则）ref给el-form一个属性-->
+      <el-form ref="loginForm" :model="loginForm" :rules="loginRules" style="margin-top:20px">
         <!-- 表单容器 设置prop属性表示要校验的字段名-->
         <el-form-item prop="mobile">
           <!-- 表单域 v-model双向绑定-->
@@ -26,7 +26,7 @@
            <el-checkbox v-model="loginForm.checked">我已阅读同意用户协议隐私条款</el-checkbox>
         </el-form-item>
         <!-- 按钮 -->
-        <el-button style="width:100%" type="primary">登录</el-button>
+        <el-button @click="login" style="width:100%" type="primary">登录</el-button>
       </el-form>
     </el-card>
   </div>
@@ -69,6 +69,15 @@ export default {
           }
         }]
       }
+    }
+  },
+  methods: {
+    login () {
+      // 获取el-form对象实例
+
+      this.$refs.loginForm.validate().then(() => {
+        // 如果成功校验就会进入then
+      })
     }
   }
 }
